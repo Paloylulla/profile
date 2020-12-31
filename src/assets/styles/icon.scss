@@ -1,0 +1,21 @@
+@mixin icon-pattern($icBackgroundTarget, $icWidth: 40px, $icHeight: 40px) {
+    content: '';
+    background-image: url(#{$icBackgroundTarget});
+    background-size: contain;
+    display: block;
+    width: $icWidth;
+    height: $icHeight;
+    background-repeat: no-repeat;
+}
+
+.ng-icon-location:before {
+    @include icon-pattern('assets/images/location-mark.svg', 30px, 30px);
+}
+
+.ng-icon-telephone:before {
+    @include icon-pattern('assets/images/phone-call.svg', 30px, 30px);
+}
+
+.ng-icon-email:before {
+    @include icon-pattern('assets/images/email.svg', 30px, 30px);
+}
