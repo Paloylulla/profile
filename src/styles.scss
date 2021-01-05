@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/styles/icon.scss';
+@import "assets/styles/icon.scss";
+@import "assets/styles/custom-theme.scss";
+
+$primaryColor1: #b56d37;
+$bgColor: #dcd8cb;
+$bodyBg: #706e68;
+$box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+  0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+@mixin scale-size {
+  transform: scale(1.2);
+  transition: transform 0.5s;
+}
+
 @mixin keyframes($animationName) {
   @-webkit-keyframes #{$animationName} {
     @content;
@@ -30,6 +43,18 @@
     background-position: -500px 0;
   }
 }
+
+@keyframes bar-move {
+  0% {
+    width: 0%;
+    animation-play-state: paused;
+  }
+
+  // 100% {
+  //   animation-play-state: paused;
+  // }
+}
+
 html,
 body {
   height: 100%;
@@ -42,7 +67,7 @@ div {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #706e68;
+  background-color: $bodyBg;
   min-height: 100vh;
   height: 100%;
 }
@@ -161,16 +186,21 @@ body {
 
   .main-body {
     display: grid;
-    grid-template-rows: auto 800px 1fr;
+    grid-template-rows: auto 1fr 500px 500px;
+    // background-color: $bgColor;
+
     .profile-area {
       display: grid;
       justify-content: center;
-      background: #151f39;
-      background: linear-gradient(352deg, #bdbdb1 20%, #dcd8cb 20%);
-      grid-template-columns: repeat(auto-fit, 350px minmax(300px, 1fr));
+      background: $bgColor;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(350px, 450px) minmax(450px, 1000px)
+      );
+      // grid-template-columns: repeat(auto-fit, 350px minmax(300px, 1fr));
       // grid-template-rows: 1fr 1fr;
-      padding: 0px 2em;
-
+      padding-left: 2em;
+      padding-right: 2em;
       .profile-picture {
         @include profile-picture-area;
         background-color: #e4e0d4;
@@ -184,12 +214,97 @@ body {
 
       .profile-details {
         .details {
-          margin-top: 2em;
+          margin: 2em 0;
+          padding-left: 10px;
+          padding-bottom: 2em;
+          max-width: 300px;
+          margin: 2em auto;
         }
       }
 
-      // .profile-experiences {
-      // }
+      .profile-experiences {
+        .company {
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        .position {
+          font-size: 16px;
+          line-height: 22px;
+          color: #525252;
+        }
+
+        .working-period {
+          color: dimgrey;
+        }
+      }
+    }
+
+    .programing-skill {
+      background: linear-gradient(352deg, #bdbdb1 20%, #dcd8cb 20%);
+      padding: 2em 2em;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: minmax(300px, 900px);
+      transition: transform 0.5s;
+      .programing-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        width: 100%;
+        justify-content: center;
+        column-gap: 15px;
+
+        .skill-list {
+          display: inline-flex;
+          align-items: center;
+          height: 35px;
+         
+          &:hover {
+            .skill-lang {
+                color: $primaryColor1;
+                transition: 0.5s;
+            }
+            .skill-bar .skill-point {
+              transition: 0.5s;
+              background-color: $primaryColor1;
+              transform: scale(1.02);
+            }
+          }
+          .skill-lang {
+            width: 100px;
+            font-size: 18px;
+          }
+
+          .skill-bar {
+            height: 20px;
+            width: calc(100% - 100px);
+            background-color: #ffffff;
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            box-shadow: $box-shadow;
+            margin-left: 3em;
+
+            .skill-point {
+              position: absolute;
+              z-index: 1;
+              // width: 80%;
+              height: 100%;
+              background-color: $bodyBg;
+              border-radius: 4px;
+              animation-delay: 10s;
+              animation: bar-move 1s linear;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .timeline-header .header-bg-icon {
+          @include scale-size;
+        }
+      }
     }
     .memo-area {
       background-color: #bdbdb1;
@@ -275,7 +390,7 @@ button.gotoWeb {
 
 .about-me {
   font-size: 16px;
-  color: #b56d37;
+  color: $primaryColor1;
   border: 2px solid;
   width: 100px;
   height: 30px;
@@ -289,10 +404,18 @@ button.gotoWeb {
   grid-template-columns: 40px 1fr;
   column-gap: 10px;
   align-items: center;
+  margin-bottom: 5px;
+  .material-icons {
+    color: $primaryColor1;
+  }
 }
 @mixin profie-area {
   .main-container .main-body .profile-area {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    .details {
+      border-bottom: 2px dashed #b56d37;
+    }
   }
 }
 
@@ -308,12 +431,11 @@ button.gotoWeb {
 
 // size = p-md (ipad mini)
 @media screen and (min-width: 768px) and (max-width: 991px) {
-
+  @include profie-area;
 }
 
 // size = p-lg (laptop, ipad pro)
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-
 }
 
 // size = p-xl (laptop)
@@ -321,11 +443,89 @@ button.gotoWeb {
 }
 
 @media screen and (max-width: 1500px) {
-
 }
 // more than labtop
 @media screen and (min-width: 1701px) {
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.timeline-header {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  .header-bg-icon {
+    color: #fff;
+    font-size: 30px;
+    background-color: $primaryColor1;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $box-shadow;
+  }
+}
+
+.timeline-steps {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      position: relative;
+      margin-left: 15px;
+      padding-left: 25px;
+      padding-bottom: 15px;
+      max-width: 600px;
+    }
+    li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      left: -2px;
+      display: block;
+      position: absolute;
+      border: 3px solid $primaryColor1;
+      background: #fcfcfc;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    li::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 3px;
+      height: 100%;
+      background: $primaryColor1;
+      left: 5px;
+      top: 0;
+    }
+  }
+
+  &:hover {
+    .timeline-header .header-bg-icon {
+      @include scale-size;
+    }
+  }
+}
+
+.card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 24px;
+  box-shadow: $box-shadow;
+  border-radius: 4px;
+}

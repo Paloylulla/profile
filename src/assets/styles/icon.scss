@@ -9,13 +9,13 @@
 }
 
 .ng-icon-location:before {
-    @include icon-pattern('assets/images/location-mark.svg', 30px, 30px);
+    @include icon-pattern('~assets/images/location-mark.svg', 30px, 30px);
 }
 
 .ng-icon-telephone:before {
-    @include icon-pattern('assets/images/phone-call.svg', 30px, 30px);
+    @include icon-pattern('~assets/images/phone-call.svg', 30px, 30px);
 }
 
 .ng-icon-email:before {
-    @include icon-pattern('assets/images/email.svg', 30px, 30px);
+    @include icon-pattern('~assets/images/email.svg', 30px, 30px);
 }

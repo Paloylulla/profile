@@ -31,67 +31,60 @@
           <div class="cornor-bottom-right"></div>
         </div>
         <div class="details">
-          <span style="color: #b56d37; font-size: 40px">
+          <div
+            style="
+              color: #b56d37;
+              font-size: 32px;
+              line-height: 35px;
+              text-align: center;
+            "
+          >
             Chutikran poprapan
-          </span>
-          <span style="font-size: 18px"> Frontend Developer </span>
+          </div>
+          <div style="font-size: 18px; text-align: center">
+            Frontend Developer
+          </div>
           <div class="about-me">ABOUT ME</div>
           <div style="margin-top: 20px; display: grid; row-gap: 10px">
-            <span style="display: grid; grid-template-columns: 1fr 1fr">
+            <span class="icon-and-text">
+              <span class="material-icons"> person </span>
               <span>Age: 27 </span>
-              <span>Salary Requirement: </span>
             </span>
-            <span class="ng-icon-location icon-and-text">
-              14/1 Soi Chan 43 Yak 26-5, bang Khol, bang kho laem, bangkok 10120
+            <span class="icon-and-text">
+              <span class="material-icons"> location_on </span>
+              <span>bangkok, Thailand</span>
+              <!-- <span
+                >14/1 Soi Chan 43 Yak 26-5, bang Khol, bang kho laem, bangkok
+                10120</span
+              > -->
             </span>
-            <!-- <span 
-              > <span class="ng-icon-location"></span>  14/1 Soi Chan 43 Yak 26-5, bang Khol, bang kho laem, bangkok
-              10120</span
-            > -->
-            <span
-              style="
-                display: grid;
-                grid-template-columns: repeat(auto-fit, 200px);
-                row-gap: 10px;
-              "
+            <span class="icon-and-text">
+              <span class="material-icons"> phone </span>
+              <span> 089-5771150</span></span
             >
-              <span class="ng-icon-telephone icon-and-text">089-5771150</span>
-              <span class="ng-icon-email icon-and-text"
-                >ploiiz.lullam@gmail.com</span
-              >
-            </span>
+            <span class="icon-and-text">
+              <span class="material-icons"> email </span>
+              <span>ploiiz.lullam@gmail.com</span></span
+            >
           </div>
         </div>
       </div>
+      <div style="display: grid; row-gap: 2em; justify-content: center">
+        <div class="profile-education">
+          <app-educations></app-educations>
+        </div>
 
-      <div class="profile-experiences">
-        <div class="work">
-          <h1>WORK</h1>
-          <ul>
-            <li *ngFor="let work of works">
-              <div>{{ work.companyName }}</div>
-              <div>{{ work.position }}</div>
-              <div>{{ work.date }}</div>
-              <ng-container  *ngIf="work.frontEnd">
-                <h4>frontEnd</h4>
-                <div *ngFor="let detail of work.frontEnd">
-                  {{ detail }}
-                </div>
-              </ng-container>
-              <ng-container  *ngIf="work.backEnd">
-                <h4>BackEnd</h4>
-                <div *ngFor="let detail of work.backEnd">
-                  {{ detail }}
-                </div>
-              </ng-container>
-            </li>
-          </ul>
+        <div class="profile-experiences">
+          <app-job-experiences></app-job-experiences>
         </div>
       </div>
     </div>
+    <div class="programing-skill">
+      <app-programing-skills></app-programing-skills>
+    </div>
     <div class="memo-area">
       <div class="memo-header">MEMO AREA</div>
-      <div class="memo-content">
+      <!-- <div class="memo-content">
         <div class="topic-card">
           <div class="topic-card-header-left">CSS</div>
           <div class="topic-card-header-right"></div>
@@ -107,7 +100,7 @@
           <div class="topic-card-header-right"></div>
           <div class="topic-card-body"></div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="main-footer"></div>

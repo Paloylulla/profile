@@ -1,5 +1,6 @@
 $fontColor: #323230;
 $cardBorder: 10px;
+
 .topic-card {
   display: grid;
   grid-template-columns: minmax(200px, 250px) 80px;
@@ -38,41 +39,5 @@ $cardBorder: 10px;
     // .topic-card-body-right {
     //     background-color: #c5c1b6;
     // }
-  }
-}
-
-.work {
-  ul {
-    list-style-type: none;
-    padding: 0;
-    li {
-      position: relative;
-      margin-left: 15px;
-      padding-left: 25px;
-      padding-bottom: 15px;
-    }
-    li::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      left: -2px;
-      display: block;
-      position: absolute;
-      border: 3px solid #706e68;
-      background: #fcfcfc;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    li::after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 3px;
-      height: 100%;
-      background: #706e68;
-      left: 5px;
-      top: 0;
-    }
   }
 }
