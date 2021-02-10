@@ -1,0 +1,10 @@
+<h1 class="timeline-header">
+  <span class="material-icons-outlined header-bg-icon"> library_books </span>
+  TOOLS & WEB STACK
+</h1>
+<div class="container-tools">
+  <div class="tools-image" *ngFor="let image of images">
+    <img [src]="image.src" />
+    <div class="name">{{ image.label }}</div>
+  </div>
+</div>

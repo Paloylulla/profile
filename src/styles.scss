@@ -9,8 +9,129 @@ $box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
   0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 
 @mixin scale-size {
-  transform: scale(1.2);
-  transition: transform 0.5s;
+  .timeline-header .header-bg-icon {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+  }
+}
+
+@mixin collapseOrfull {
+  // height: 600px;
+  position: absolute;
+  content: "";
+  // background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
+  background: linear-gradient(130deg, #c4593d, #f5e0cd 41.07%, #706e68 76.05%);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: height 0.5s;
+  clip-path: polygon(
+    100% 0%,
+    0% 0%,
+    0% 65%,
+    1% 64.95%,
+    2% 64.8%,
+    3% 64.6%,
+    4% 64.3%,
+    5% 63.9%,
+    6% 63.45%,
+    7% 62.9%,
+    8% 62.25%,
+    9% 61.55%,
+    10% 60.8%,
+    11% 59.95%,
+    12% 59.05%,
+    13% 58.1%,
+    14% 57.1%,
+    15% 56.05%,
+    16% 55%,
+    17% 53.9%,
+    18% 52.8%,
+    19% 51.65%,
+    20% 50.5%,
+    21% 49.35%,
+    22% 48.2%,
+    23% 47.05%,
+    24% 45.9%,
+    25% 44.8%,
+    26% 43.75%,
+    27% 42.75%,
+    28% 41.75%,
+    29% 40.8%,
+    30% 39.9%,
+    31% 39.1%,
+    32% 38.35%,
+    33% 37.65%,
+    34% 37.05%,
+    35% 36.5%,
+    36% 36.05%,
+    37% 35.65%,
+    38% 35.35%,
+    39% 35.15%,
+    40% 35.05%,
+    41% 35%,
+    42% 35.05%,
+    43% 35.2%,
+    44% 35.45%,
+    45% 35.75%,
+    46% 36.15%,
+    47% 36.65%,
+    48% 37.2%,
+    49% 37.85%,
+    50% 38.55%,
+    51% 39.35%,
+    52% 40.2%,
+    53% 41.1%,
+    54% 42.05%,
+    55% 43.05%,
+    56% 44.1%,
+    57% 45.15%,
+    58% 46.3%,
+    59% 47.4%,
+    60% 48.55%,
+    61% 49.7%,
+    62% 50.85%,
+    63% 52%,
+    64% 53.15%,
+    65% 54.25%,
+    66% 55.35%,
+    67% 56.4%,
+    68% 57.45%,
+    69% 58.4%,
+    70% 59.35%,
+    71% 60.2%,
+    72% 61.05%,
+    73% 61.8%,
+    74% 62.45%,
+    75% 63.05%,
+    76% 63.6%,
+    77% 64.05%,
+    78% 64.4%,
+    79% 64.7%,
+    80% 64.85%,
+    81% 65%,
+    82% 65%,
+    83% 64.9%,
+    84% 64.75%,
+    85% 64.5%,
+    86% 64.2%,
+    87% 63.75%,
+    88% 63.25%,
+    89% 62.7%,
+    90% 62.05%,
+    91% 61.3%,
+    92% 60.5%,
+    93% 59.65%,
+    94% 58.75%,
+    95% 57.8%,
+    96% 56.8%,
+    97% 55.75%,
+    98% 54.65%,
+    99% 53.55%,
+    100% 52.4%
+  );
 }
 
 @mixin keyframes($animationName) {
@@ -37,22 +158,26 @@ $box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
 
 @keyframes slide {
   from {
-    background-position: 0 0;
+    background-position-y: bottom;
   }
   to {
-    background-position: -500px 0;
+    background-position-y: top;
   }
 }
 
 @keyframes bar-move {
   0% {
     width: 0%;
-    animation-play-state: paused;
+    animation-play-state: running;
   }
 
-  // 100% {
-  //   animation-play-state: paused;
-  // }
+  100% {
+    animation-play-state: paused;
+  }
+}
+
+.bar-move {
+  animation: bar-move 1s linear;
 }
 
 html,
@@ -67,7 +192,7 @@ div {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: $bodyBg;
+  background-color: $bgColor;
   min-height: 100vh;
   height: 100%;
 }
@@ -121,7 +246,6 @@ body {
     "present-word profile-picture"
     "home-page-footer home-page-footer";
   grid-template-columns: 300px minmax(200px, 300px);
-  // grid-template-rows: 1fr 500px 2fr;
   grid-template-rows: 1fr minmax(300px, 500px) 2fr;
   justify-content: center;
   padding: 20px;
@@ -164,41 +288,59 @@ body {
 .main-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 30vh 1fr 200px;
+  grid-template-rows: 200px 1fr 200px;
   height: 100%;
   justify-content: center;
-  background-image: url("assets/images/header-bg.png");
-  background-attachment: fixed;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: slide 20s linear infinite;
+  position: relative;
+  transition: 0.2s;
+
+  &:not(.collapse) {
+    .main-header {
+      font-size: clamp(80px, 20vw, 190px);
+    }
+    &:after {
+      @include collapseOrfull;
+      height: 600px;
+    }
+  }
+
+  &.collapse {
+    &:after {
+      @include collapseOrfull;
+      height: 100px;
+    }
+  }
+
   .main-header {
-    font-size: clamp(100px, 20vw, 200px);
-    // line-height: clamp(100px, 9vw, 200px);
     font-weight: bold;
     display: grid;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     background-color: transparent;
     color: transparent;
     text-shadow: 6px 5px 5px #eaeaea45;
+    z-index: 1;
+    background-image: url("assets/images/header-bg.png");
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: slide 10s linear infinite alternate;
   }
 
   .main-body {
     display: grid;
-    grid-template-rows: auto 1fr 500px 500px;
-    // background-color: $bgColor;
+    grid-template-rows: 200px 1fr minmax(350px, 350px) minmax(
+        250px,
+        max-content
+      ) 500px;
 
     .profile-area {
       display: grid;
       justify-content: center;
-      background: $bgColor;
       grid-template-columns: repeat(
         auto-fit,
         minmax(350px, 450px) minmax(450px, 1000px)
       );
-      // grid-template-columns: repeat(auto-fit, 350px minmax(300px, 1fr));
-      // grid-template-rows: 1fr 1fr;
       padding-left: 2em;
       padding-right: 2em;
       .profile-picture {
@@ -213,6 +355,8 @@ body {
       }
 
       .profile-details {
+        display: grid;
+        align-content: center;
         .details {
           margin: 2em 0;
           padding-left: 10px;
@@ -241,12 +385,14 @@ body {
     }
 
     .programing-skill {
-      background: linear-gradient(352deg, #bdbdb1 20%, #dcd8cb 20%);
-      padding: 2em 2em;
+      // background-color: $bgColor;
+      padding: 10px 10px;
       display: grid;
       justify-content: center;
-      grid-template-columns: minmax(300px, 900px);
+      grid-template-columns: minmax(auto, 900px);
       transition: transform 0.5s;
+      align-items: center;
+
       .programing-content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -254,15 +400,19 @@ body {
         justify-content: center;
         column-gap: 15px;
 
+        &.animation-barmove .skill-bar .skill-point {
+          animation: bar-move 1s linear;
+        }
+
         .skill-list {
           display: inline-flex;
           align-items: center;
           height: 35px;
-         
+
           &:hover {
             .skill-lang {
-                color: $primaryColor1;
-                transition: 0.5s;
+              color: $primaryColor1;
+              transition: 0.5s;
             }
             .skill-bar .skill-point {
               transition: 0.5s;
@@ -289,22 +439,80 @@ body {
             .skill-point {
               position: absolute;
               z-index: 1;
-              // width: 80%;
               height: 100%;
               background-color: $bodyBg;
               border-radius: 4px;
-              animation-delay: 10s;
-              animation: bar-move 1s linear;
             }
           }
         }
       }
 
       &:hover {
-        .timeline-header .header-bg-icon {
-          @include scale-size;
-        }
+        @include scale-size;
       }
+    }
+
+    .tools-and-framework {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(auto, 600px));
+      column-gap: 3em;
+      row-gap: 3em;
+      padding: 0 2em;
+      background: linear-gradient(352deg, #bdbdb1 20%, #dcd8cb 20%);
+      justify-content: center;
+
+      .container-tools {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        justify-items: center;
+        align-items: center;
+        row-gap: 2vh;
+        column-gap: 1vw;
+        height: auto;
+      
+        .tools-image {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: 1em;
+          background-color: #bdbdb1;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          justify-items: center;
+          box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+          transition: height  0.5s;
+          img {
+            height: 50px;
+            width: auto;
+          }
+
+          .name {
+            font-size: 12px;
+            transform: translateY(20%);
+            transition-delay: 2s;
+            transition: transform  0.5s;
+            opacity: 0;
+            position: absolute;
+          }
+
+          // &:not(:hover) { 
+          //   .name { display: none;}
+          // }
+          &:hover {
+            // transform: scale(1.1);
+            height: calc(100% + 10px);
+            padding: 10px;
+            align-items: flex-start;
+            .name {
+              opacity: 1;
+              bottom: 5px;
+              transform: translateY(0%);
+            }
+          }
+        }
+      }      
     }
     .memo-area {
       background-color: #bdbdb1;
@@ -410,8 +618,10 @@ button.gotoWeb {
   }
 }
 @mixin profie-area {
-  .main-container .main-body .profile-area {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  .main-container .main-body .profile-area,
+  .main-container .main-body .tools-and-framework {
+    padding: 0 10px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
     .details {
       border-bottom: 2px dashed #b56d37;
@@ -419,19 +629,31 @@ button.gotoWeb {
   }
 }
 
+@mixin tools-area {
+  .main-container .main-body .tools-and-framework {
+    padding: 0 10px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    height: fit-content;
+    row-gap: 1em;
+  }
+}
+
 // mobile
 @media screen and (max-width: 575px) {
   @include profie-area;
+  @include tools-area;
 }
 
 // size = p-sm (ipad mini)
 @media screen and (min-width: 576px) and (max-width: 767px) {
   @include profie-area;
+  @include tools-area;
 }
 
 // size = p-md (ipad mini)
 @media screen and (min-width: 768px) and (max-width: 991px) {
   @include profie-area;
+  @include tools-area;
 }
 
 // size = p-lg (laptop, ipad pro)
@@ -515,17 +737,19 @@ body {
   }
 
   &:hover {
-    .timeline-header .header-bg-icon {
-      @include scale-size;
-    }
+    // .timeline-header .header-bg-icon {
+    @include scale-size;
+    // }
   }
 }
 
 .card {
-  width: 100%;
-  background-color: #fff;
-  border-radius: 10px;
+  // width: 100%;
   padding: 10px 24px;
-  box-shadow: $box-shadow;
-  border-radius: 4px;
+  &:hover {
+    @include scale-size;
+  }
+  // border-radius: 4px;
 }
+
+// clip-path: polygon(100% 0%, 0% 0% , 0% 65%, 1% 64.95%, 2% 64.8%, 3% 64.6%, 4% 64.3%, 5% 63.9%, 6% 63.45%, 7% 62.9%, 8% 62.25%, 9% 61.55%, 10% 60.8%, 11% 59.95%, 12% 59.05%, 13% 58.1%, 14% 57.1%, 15% 56.05%, 16% 55%, 17% 53.9%, 18% 52.8%, 19% 51.65%, 20% 50.5%, 21% 49.35%, 22% 48.2%, 23% 47.05%, 24% 45.9%, 25% 44.8%, 26% 43.75%, 27% 42.75%, 28% 41.75%, 29% 40.8%, 30% 39.9%, 31% 39.1%, 32% 38.35%, 33% 37.65%, 34% 37.05%, 35% 36.5%, 36% 36.05%, 37% 35.65%, 38% 35.35%, 39% 35.15%, 40% 35.05%, 41% 35%, 42% 35.05%, 43% 35.2%, 44% 35.45%, 45% 35.75%, 46% 36.15%, 47% 36.65%, 48% 37.2%, 49% 37.85%, 50% 38.55%, 51% 39.35%, 52% 40.2%, 53% 41.1%, 54% 42.05%, 55% 43.05%, 56% 44.1%, 57% 45.15%, 58% 46.3%, 59% 47.4%, 60% 48.55%, 61% 49.7%, 62% 50.85%, 63% 52%, 64% 53.15%, 65% 54.25%, 66% 55.35%, 67% 56.4%, 68% 57.45%, 69% 58.4%, 70% 59.35%, 71% 60.2%, 72% 61.05%, 73% 61.8%, 74% 62.45%, 75% 63.05%, 76% 63.6%, 77% 64.05%, 78% 64.4%, 79% 64.7%, 80% 64.85%, 81% 65%, 82% 65%, 83% 64.9%, 84% 64.75%, 85% 64.5%, 86% 64.2%, 87% 63.75%, 88% 63.25%, 89% 62.7%, 90% 62.05%, 91% 61.3%, 92% 60.5%, 93% 59.65%, 94% 58.75%, 95% 57.8%, 96% 56.8%, 97% 55.75%, 98% 54.65%, 99% 53.55%, 100% 52.4%);

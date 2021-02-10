@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-programing-skills',
@@ -20,5 +20,12 @@ export class ProgramingSkillsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+    if (window.scrollY > 350 &&  window.scrollY < 1400) {
+      document.getElementById('skillPoint').classList.add('animation-barmove');
+    } else {
+      document.getElementById('skillPoint').classList.remove('animation-barmove');
+    }
+  }
 }
