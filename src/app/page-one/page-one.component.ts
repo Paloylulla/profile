@@ -29,7 +29,6 @@ export class PageOneComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll() {
-    console.log(window.scrollY);
     if (window.scrollY > 250) {
       document.getElementById('mainContainer').classList.add('collapse');
     } else if (window.scrollY > 350 && window.scrollY < 500) {
@@ -41,7 +40,6 @@ export class PageOneComponent implements OnInit {
   }
 
   changeTheme(event) {
-    console.log('event', event);
     const body = (document.getElementsByTagName('body')[0]) as HTMLElement;
     if (event.checked) {
       body.classList.add('darkMode');
@@ -50,5 +48,9 @@ export class PageOneComponent implements OnInit {
       body.classList.remove('darkMode');
       localStorage.setItem('mode', 'light');
     }
+  }
+
+  goPage() {
+    window.location.href = 'https://paloylulla.github.io/';
   }
 }

@@ -14,8 +14,8 @@ export class JobExperiencesComponent implements OnInit {
       position: 'Programer',
       date: '1 Jan, 2019 - present',
       jobDescription: [
-        'Developed and maintain website follow document from SA',
-        'Develop programs using angular framework and creeated component framework for project',
+        'Develop and maintain website follow document from SA',
+        'Develop programes using angular framework and create component framework for projects',
         'Creating a theme for website using scss, follow adobe xd from designer',
         'Create login page or reset password from angular framwork and implememt to keycloak server',
         'Research solution for web design',
@@ -27,7 +27,7 @@ export class JobExperiencesComponent implements OnInit {
       position: 'R&D [Research and development]',
       date: '15 Dec, 2017 - 31 Dec, 2018',
       jobDescription: [
-        'Developed, maintain, debug source code and support web-base ERP application for administrative',
+        'Develop, maintain, debug source code and support web-base ERP application for administrative',
         'Using javascript, HTML, JSP, Object-Oriented Programing (JAVA), Oracle (PL/SQL), framework base on MVC pattern'
       ]
     },
