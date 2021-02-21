@@ -5,6 +5,6 @@
 <div class="container-tools">
   <div class="tools-image" *ngFor="let image of images">
     <img [src]="image.src" />
-    <div class="name">{{ image.label }}</div>
+    <div class="name"  [ngStyle]="{color: image.color}">{{ image.label }}</div>
   </div>
 </div>

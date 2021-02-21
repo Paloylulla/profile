@@ -7,9 +7,25 @@ import { Works } from '../profile.models';
   styleUrls: ['./page-one.component.scss'],
 })
 export class PageOneComponent implements OnInit {
+  checkedMode = false;
+  memoList = [
+    {label: 'gitHub', src: '/assets/images/github.png', url: 'https://github.com/Paloylulla'},
+    {label: 'codepen', src: '/assets/images/codepen.png', url: 'https://codepen.io/paloylulla/pens/public'}
+  ];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const body = (document.getElementsByTagName('body')[0]) as HTMLElement;
+    const mode = localStorage.getItem('mode');
+    body.classList.add(mode);
+
+    if (mode === 'darkMode') {
+      this.checkedMode = true;
+    } else {
+      this.checkedMode = false;
+    }
+  }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll() {
@@ -24,12 +40,15 @@ export class PageOneComponent implements OnInit {
     }
   }
 
-  // @HostListener('document:mousemove', ['$event'])
-  // onMouseMove(e) {
-  //   //  document.getElementById("#image").css({left:e.pageX, top:e.pageY});
-
-  //   document.getElementById('image').style.left = e.pageX + 'px';
-  //   document.getElementById('image').style.top = e.pageY + 'px';
-  //   console.log(e.pageY);
-  // }
+  changeTheme(event) {
+    console.log('event', event);
+    const body = (document.getElementsByTagName('body')[0]) as HTMLElement;
+    if (event.checked) {
+      body.classList.add('darkMode');
+      localStorage.setItem('mode', 'darkMode');
+    } else {
+      body.classList.remove('darkMode');
+      localStorage.setItem('mode', 'light');
+    }
+  }
 }

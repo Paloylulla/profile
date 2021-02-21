@@ -14,8 +14,8 @@ export class JobExperiencesComponent implements OnInit {
       position: 'Programer',
       date: '1 Jan, 2019 - present',
       jobDescription: [
-        'Create new companent to use in project',
-        'Develop programs using angular framework',
+        'Developed and maintain website follow document from SA',
+        'Develop programs using angular framework and creeated component framework for project',
         'Creating a theme for website using scss, follow adobe xd from designer',
         'Create login page or reset password from angular framwork and implememt to keycloak server',
         'Research solution for web design',
@@ -35,7 +35,7 @@ export class JobExperiencesComponent implements OnInit {
       companyName: 'True Corparation Khonkaen [6 months]',
       position: 'Call center IT',
       date: '12 Sep, 2016 - 31 March, 2017',
-      jobDescription: []
+      jobDescription: ['Support customer about internet problems']
     },
   ];
   constructor() { }

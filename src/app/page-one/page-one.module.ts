@@ -8,13 +8,15 @@ import { EducationsComponent } from './educations/educations.component';
 import { ProgramingSkillsComponent } from './programing-skills/programing-skills.component';
 import { FrameworkComponent } from './framework/framework.component';
 import { ToolsComponent } from './tools/tools.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [PageOneComponent, JobExperiencesComponent, EducationsComponent, ProgramingSkillsComponent, FrameworkComponent, ToolsComponent],
   imports: [
     CommonModule,
     PageOneRoutingModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSlideToggleModule
   ], exports: [PageOneComponent]
 })
 export class PageOneModule { }

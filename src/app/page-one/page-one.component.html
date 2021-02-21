@@ -1,4 +1,18 @@
-<div class="main-container" id="mainContainer">
+<div class="main-container" id="mainContainer" style="position: relative">
+  <div class="mode">
+    <span class="material-icons" style="color: #FFF;">
+      wb_sunny
+      </span>
+    <mat-slide-toggle (change)="changeTheme($event)" [checked]="checkedMode"></mat-slide-toggle>
+    <span class="material-icons" style="color: #FFF;">
+      nightlight_round
+      </span>
+    <div class="logo">
+      PL<br />
+      OY
+    </div>
+  </div>
+
   <div class="main-header">
     <div>Portfolio</div>
   </div>
@@ -80,33 +94,39 @@
     <div class="tools-and-framework">
       <div class="card">
         <app-tools></app-tools>
-      </div >
+      </div>
       <div class="card">
         <app-framework></app-framework>
       </div>
     </div>
     <div class="memo-area">
-      <div class="memo-header">MEMO AREA</div>
-      <!-- <div class="memo-content">
-        <div class="topic-card">
-          <div class="topic-card-header-left">CSS</div>
-          <div class="topic-card-header-right"></div>
-          <div class="topic-card-body"></div>
+      <div class="memo-content">
+        <div class="group-text">
+          <span>CLICK</span>
+          <span>or scan</span>
         </div>
-        <div class="topic-card">
-          <div class="topic-card-header-left">Angular</div>
-          <div class="topic-card-header-right"></div>
-          <div class="topic-card-body"></div>
+        <div class="group-details">
+          <img
+            src="assets/images/qrcode_paloylulla.github.io.png"
+            class="qr-code"
+          />
+          <a
+            class="link"
+            *ngFor="let memo of memoList"
+            [href]="memo.url"
+            target="_blank"
+          >
+            <img [src]="memo.src" />
+            <div style="color: #fff">
+              {{ memo.label }}
+            </div>
+          </a>
         </div>
-        <div class="topic-card">
-          <div class="topic-card-header-left">RXJS</div>
-          <div class="topic-card-header-right"></div>
-          <div class="topic-card-body"></div>
-        </div>
-      </div> -->
+      </div>
+      <div class="memo-space"></div>
     </div>
   </div>
-  <div class="main-footer"></div>
+  <!-- <div class="main-footer"></div> -->
 </div>
 
 <!-- <img id="image" src="assets/images/person-home-page.jpg" style="position: absolute;"/> -->

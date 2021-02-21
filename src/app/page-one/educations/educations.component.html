@@ -5,7 +5,7 @@
     </h1>
     <ul>
       <li *ngFor="let education of educationList">
-          <div class="card">
+          <div class="card-edu" style="background-color: #FFFFFF;">
             <h2>{{ education.name }}</h2>
             <ng-container *ngIf="education.details">
                 <div *ngFor="let detail of education.details">
