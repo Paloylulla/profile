@@ -94,6 +94,8 @@
             src="assets/images/qrcode_paloylulla.github.io.png"
             class="qr-code"
             (click)="goPage()"
+            width="120px"
+            height="120px"
           />
           <div style="display: grid;
           column-gap: 2vw;
@@ -104,7 +106,7 @@
               [href]="memo.url"
               target="_blank"
             >
-              <img [src]="memo.src" />
+              <img [src]="memo.src" width="40px" height="40px"/>
               <div style="color: #fff">
                 {{ memo.label }}
               </div>

@@ -536,7 +536,8 @@ h2 {
           transition: height 0.5s;
           img {
             height: 50px;
-            width: auto;
+            min-width: 50px;
+            width: fit-content;
           }
 
           .name {
@@ -609,8 +610,6 @@ h2 {
           .qr-code {
             display: flex;
             justify-self: center;
-            height: 120px;
-            width: 120px;
             cursor: pointer;
           }
           .link {
@@ -625,8 +624,8 @@ h2 {
             img {
               background-color: #fff;
               border-radius: 100%;
-              width: 40px;
-              height: 40px;
+              // width: 40px;
+              // height: 40px;
             }
           }
         }
