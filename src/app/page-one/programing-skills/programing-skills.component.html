@@ -1,16 +1,14 @@
 <h1 class="timeline-header">
-    <span class="ng-icon-code header-bg-icon"></span>
-    PROGRAMING SKILLS
-  </h1>
-  <div class="programing-content"  id="skillPoint">
-        <div class="skill-list"  *ngFor="let skill of skillList">
-            <!-- <div class="skill"> -->
-                <div class="skill-lang">
-                    {{ skill.lang }}
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-point" [ngStyle]="{'width': skill.point}"> </div>
-                </div>
-            </div>
-        <!-- </div> -->
+  <span class="ng-icon-code header-bg-icon"></span>
+  PROGRAMING SKILLS
+</h1>
+<div class="programing-content" id="skillPoint">
+  <div class="skill-list" *ngFor="let skill of skillList">
+    <div class="skill-lang">
+      {{ skill.lang }}
+    </div>
+    <div class="skill-bar">
+      <div class="skill-point" [ngStyle]="{ width: skill.point }"></div>
+    </div>
   </div>
+</div>

@@ -9,20 +9,18 @@ $cardBorder: 10px;
   grid-template-areas:
     "topic-card-header-left topic-card-header-right"
     "topic-card-body topic-card-body";
-  // align-self: center;
+
   .topic-card-header-left {
     grid-area: topic-card-header-left;
     background-color: #fff;
     border-top-left-radius: $cardBorder;
     border-top-right-radius: $cardBorder;
-    // background: linear-gradient(90deg, rgba(255,255,255,1) 72%, rgba(197,193,182,1) 72%);
   }
   .topic-card-header-right {
     grid-area: topic-card-header-right;
     border-top-left-radius: $cardBorder;
     border-top-right-radius: $cardBorder;
     background-color: #c5c1b6;
-    // background: linear-gradient(90deg, rgba(255,255,255,1) 72%, rgba(197,193,182,1) 72%);
   }
   .topic-card-body {
     grid-area: topic-card-body;
@@ -32,12 +30,5 @@ $cardBorder: 10px;
     background-color: #fff;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    // .topic-card-body-left {
-    //     background-color: #FFFFFF;
-    // }
-
-    // .topic-card-body-right {
-    //     background-color: #c5c1b6;
-    // }
   }
 }

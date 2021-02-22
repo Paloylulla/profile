@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PageOneComponent } from './page-one/page-one.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./page-one/page-one.module').then((m) => m.PageOneModule),
+    component: PageOneComponent
   }
 ];
 

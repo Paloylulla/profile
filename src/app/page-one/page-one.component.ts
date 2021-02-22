@@ -16,8 +16,8 @@ export class PageOneComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    const body = (document.getElementsByTagName('body')[0]) as HTMLElement;
     const mode = localStorage.getItem('mode');
+    const body = (document.getElementsByTagName('body')[0]) as HTMLElement;
     body.classList.add(mode);
 
     if (mode === 'darkMode') {

@@ -1,37 +1,16 @@
 <div class="timeline-steps">
-    <h1 class="timeline-header">
-      <span class="ng-icon-work header-bg-icon"></span>
-      EDUCATIONS
-    </h1>
-    <ul>
-      <li *ngFor="let education of educationList">
-          <div class="card-edu" style="background-color: #FFFFFF;">
-            <h2>{{ education.name }}</h2>
-            <ng-container *ngIf="education.details">
-                <div *ngFor="let detail of education.details">
-                  + {{ detail }}
-                </div>
-              </ng-container>
-          </div>
-
-        <!-- <mat-expansion-panel
-          (opened)="panelOpenState = true"
-          (closed)="panelOpenState = false"
-        >
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div style="display: grid">
-                <div class="company">{{ education.name }}</div>
-              </div>
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <br />
-          <ng-container *ngIf="education.details">
-            <div *ngFor="let detail of education.details">
-              - {{ detail }}
-            </div>
-          </ng-container>
-        </mat-expansion-panel> -->
-      </li>
-    </ul>
-  </div>
+  <h1 class="timeline-header">
+    <span class="ng-icon-work header-bg-icon"></span>
+    EDUCATIONS
+  </h1>
+  <ul>
+    <li *ngFor="let education of educationList">
+      <div class="card-edu" style="background-color: #ffffff">
+        <h2>{{ education.name }}</h2>
+        <ng-container *ngIf="education.details">
+          <div *ngFor="let detail of education.details">+ {{ detail }}</div>
+        </ng-container>
+      </div>
+    </li>
+  </ul>
+</div>
