@@ -6,11 +6,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./page-one/page-one.module').then((m) => m.PageOneModule),
-  },
-  {
-    path: 'homepage',
-    loadChildren: () =>
-      import('./home-page/home-page.module').then((m) => m.HomePageModule),
   }
 ];
 
