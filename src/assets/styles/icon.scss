@@ -19,3 +19,35 @@
 .ng-icon-email:before {
     @include icon-pattern('~assets/images/email.svg', 30px, 30px);
 }
+
+.ng-icon-work:before {
+    @include icon-pattern('~assets/images/icon/work.svg', 30px, 30px);
+}
+
+.ng-icon-code:before {
+    @include icon-pattern('~assets/images/icon/code.svg', 30px, 30px);
+}
+
+.ng-icon-library_books:before {
+    @include icon-pattern('~assets/images/icon/library_books.svg', 30px, 30px);
+}
+
+.ng-icon-person:before {
+    @include icon-pattern('~assets/images/icon/person.svg', 20px, 20px);
+}
+
+.ng-icon-location:before {
+    @include icon-pattern('~assets/images/icon/location.svg', 20px, 20px);
+}
+
+.ng-icon-email:before {
+    @include icon-pattern('~assets/images/icon/email.svg', 20px, 20px);
+}
+
+.ng-icon-wb_sunny {
+    @include icon-pattern('~assets/images/icon/wb_sunny.svg', 20px, 20px);
+}
+
+.ng-icon-nightlight_round {
+    @include icon-pattern('~assets/images/icon/nightlight_round.svg', 20px, 20px);
+}

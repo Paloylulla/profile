@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/styles/icon.scss";
 @import "assets/styles/custom-theme.scss";
+@import "assets/font/font.scss";
 
 $primaryColor1: #b56d37;
 
@@ -240,7 +241,7 @@ div {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto;
   background-color: var(--bgColor);
   min-height: 100vh;
   height: 100%;
@@ -380,7 +381,7 @@ body {
     background-color: #000;
     text-shadow: var(--header-shadow);
     z-index: 1;
-    background-image: url("~assets/images/header-bg.png");
+    background-image: url("~assets/images/header-bg.jpg");
     background-attachment: fixed;
     background-size: 800px 800px;
     -webkit-background-size: 800px 800px;
@@ -759,7 +760,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto;
   color: var(--color);
 }
 

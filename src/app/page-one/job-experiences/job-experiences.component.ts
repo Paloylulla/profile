@@ -17,13 +17,13 @@ export class JobExperiencesComponent implements OnInit {
         'Develop and maintain website follow document from SA',
         'Develop programes using angular framework and create component framework for projects',
         'Creating a theme for website using scss, follow adobe xd from designer',
-        'Create login page or reset password from angular framwork and implememt to keycloak server',
+        'Create login page or reset password from angular framework and implememt to keycloak server',
         'Research solution for web design',
         'Using java for coding REST api (company framework) and block chain (hyperledger fabric)'
       ]
     },
     {
-      companyName: 'Laconic Technology Co ., Ltd',
+      companyName: 'Laconic Technology Co ., Ltd [1 year]',
       position: 'R&D [Research and development]',
       date: '15 Dec, 2017 - 31 Dec, 2018',
       jobDescription: [
