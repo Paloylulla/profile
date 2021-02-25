@@ -11,6 +11,7 @@ export class ProgramingSkillsComponent implements OnInit {
     {lang: 'JSP' , point: '33%'},
     {lang: 'Javascript' , point: '68%'},
     {lang: 'TypeScript' , point: '70%'},
+    {lang: 'Rxjs' , point: '60%'},
     {lang: 'Java' , point: '50%'},
     {lang: 'PL/SQL' , point: '30%'},
     {lang: 'Css & Scss' , point: '85%'},
